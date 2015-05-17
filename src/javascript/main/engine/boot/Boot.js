@@ -10,13 +10,22 @@
 Game.define('Boot', 'engine/boot', (function(fn, undefined) {
     'use strict';
 
+    var Stage;
+
+    // constructor
+    fn = function() {
+        // importing Stage
+        Stage = Game.engine.ui.stage.Stage;
+    };
+
     fn.prototype.init = function() {
         Logger.info('Booting...');
 
-        var Stage = Game.engine.ui.stage.Main,
-        stage = new Stage();
+        var stage = new Stage();
         stage.init();
+        stage.buildScene();
 
+        // init example
         init();
     };
 

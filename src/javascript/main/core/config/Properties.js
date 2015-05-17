@@ -14,5 +14,5 @@ Game.settings.isLoggerEnabled = true;
 Game.settings.FPS = 30;
 Game.settings.SECONDS_BETWEEN_FRAMES = 1 / Game.settings.FPS;
 
-Game.settings.viewport.width =  750;
-Game.settings.viewport.height = 500;
+Game.settings.viewport.width =  600;
+Game.settings.viewport.height = 420;
