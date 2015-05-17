@@ -1,7 +1,8 @@
 /**
  * This object contains several useful methods.
  *
- * @author Madureira
+ * @author madureira
+ *
  */
 Game.Helpful = {
 

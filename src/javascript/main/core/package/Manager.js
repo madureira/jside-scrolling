@@ -1,9 +1,11 @@
 /**
  * This function is responsible to generate the namespace dynamically.
  *
- * @author Madureira
+ * @author madureira
  *
+ * @param string object name
  * @param string namespace
+ * @param object the object function
  *
  * @return void
  */
@@ -15,7 +17,7 @@ Game.define = Game.define || function(clazz, namespace, object) {
      *      Given: array([0] => 'a', [1] => 'b')
      *      Return: Object({ a: { b: {} } });
      *
-     * @param array list
+     * @param list Array
      *
      * @return object
      */
@@ -50,8 +52,8 @@ Game.define = Game.define || function(clazz, namespace, object) {
     /**
      * Creates a namespace or merge if it exist on namespace container tree.
      *
-     * @param object namespace
-     * @param object context
+     * @param namespace object
+     * @param context object
      *
      * @return object
      */
@@ -65,4 +67,5 @@ Game.define = Game.define || function(clazz, namespace, object) {
     var newNamespaceObject = generatesObjectByArray(namespaceList);
 
     Game = createNamespace(newNamespaceObject, Game);
+
 };

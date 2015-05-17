@@ -3,10 +3,11 @@
     "version"           : "0.0.1",
     "description"       : "A small javascript engine to develop side-scrolling platform games.",
     "keywords"          : [ "sidescrolling", "javascript", "nodejs" ],
-
     "author"            : "Rafael Madureira dos Santos",
 
     "main"              : "public/index.html",
+
+    "engines"           : { "node": ">= 0.12.3" },
 
     "scripts"           : {
         "build" : "gulp --cwd build/gulp/",
@@ -15,9 +16,20 @@
 
     "devDependencies"   : {
         "gulp"                  : "~3.8.11",
+        "gulp-concat"           : "~2.5.2",
         "gulp-load-plugins"     : "~0.10.0",
-        "gulp-concat"           : "~2.5.2"
-    },
+        "gulp-handlebars"       : "~4.0.0",
+        "gulp-uglify"           : "~1.2.0",
+        "gulp-less"             : "~3.0.3",
+        "gulp-minify-css"       : "~1.1.1",
+        "gulp-util"             : "~3.0.4",
+        "gulp-rename"           : "~1.2.2",
+        "gulp-filesize"         : "~0.0.6",
+        "gulp-jshint"           : "~1.10.0",
+        "gulp-define-module"    : "~0.1.3",
+        "gulp-header"           : "~1.2.2",
+        "gulp-coveralls"        : "~0.1.4",
+        "gulp-clean"            : "~0.3.1"
+    }
 
-    "engines"         : { "node": ">= 0.12.3" }
 }

@@ -16,4 +16,3 @@ Game.start = function() {
     boot = new Boot();
     boot.init();
 };
-
