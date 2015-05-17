@@ -13,7 +13,7 @@ Game.define('Boot', 'engine/boot', (function(fn, undefined) {
     fn.prototype.init = function() {
         console.log('Booting...');
 
-        var Stage = Game.engine.ui.Stage,
+        var Stage = Game.engine.ui.stage.Main,
         stage = new Stage();
         stage.init();
     };

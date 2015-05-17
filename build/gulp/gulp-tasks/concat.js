@@ -18,5 +18,4 @@ module.exports = function (gulp, plugins, sourceFiles, destinationFolder, fileNa
             .pipe(plugins.concat(fileName))
             .pipe(gulp.dest(destinationFolder));
     };
-
 };

@@ -7,16 +7,17 @@
  * @param undefined undefined
  *
  */
-Game.define('Stage', 'engine/ui', (function(fn, undefined) {
+Game.define('Main', 'engine/ui/stage', (function(fn, undefined) {
     'use strict';
 
     fn.prototype.init = function() {
         console.log('Building stage...');
 
-        var stageUI = Game.templates.stage();
+        var viewport = Game.templates.stage_viewport();
+        var mainStage = Game.templates.stage_main({ "viewport": viewport } );
 
         var $stage = document.getElementById('stage');
-        $stage.insertAdjacentHTML('beforeend', stageUI);
+        $stage.insertAdjacentHTML('beforeend', mainStage);
     };
 
     return fn;

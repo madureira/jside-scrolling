@@ -21,10 +21,10 @@ module.exports = function (gulp, plugins, sourceFiles, destinationFolder, fileNa
                 context: function(context) {
                     var file = context.file;
                     var fullPath = file.path;
-                    var tplPath = fullPath.split("javascript/main/ui/").pop();
+                    var tplPath = fullPath.split("templates/ui/").pop();
                     var find = '/';
                     var regex = new RegExp(find, 'g');
-                    var name = tplPath.replace(regex, '.').replace('.js', '');
+                    var name = tplPath.replace(regex, '_').replace('.js', '');
 
                     return { templateName: name };
                 }
