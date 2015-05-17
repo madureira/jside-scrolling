@@ -1,4 +1,3 @@
-
 // Verify if all game contents are loaded
 Game.ready = setInterval(function() {
     if (document.readyState === "complete") {

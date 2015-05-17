@@ -17,7 +17,7 @@ module.exports = function (gulp, plugins, sourceFiles, destinationFolder, fileNa
         gulp.src(sourceFiles)
             .pipe(plugins.handlebars())
             .pipe(plugins.defineModule('plain', {
-                wrapper: 'Game.ui["<%= templateName %>"] = <%= handlebars %>',
+                wrapper: 'Game.templates["<%= templateName %>"] = <%= handlebars %>',
                 context: function(context) {
                     var file = context.file;
                     var fullPath = file.path;
@@ -30,7 +30,6 @@ module.exports = function (gulp, plugins, sourceFiles, destinationFolder, fileNa
                 }
             }))
             .pipe(plugins.concat(fileName))
-            .pipe(plugins.header('var Game = Game || {}; Game.ui = Game.ui || {};'))
             .pipe(plugins.uglify())
             .pipe(gulp.dest(destinationFolder))
             .pipe(plugins.filesize())

@@ -1,10 +1,10 @@
 /**
  * Responsible to boot the game.
  *
+ * @author madureira
+ *
  * @param fn context
  * @param undefined undefined
- *
- * @author madureira
  *
  */
 Game.define('Boot', 'engine/boot', (function(fn, undefined) {
@@ -12,6 +12,10 @@ Game.define('Boot', 'engine/boot', (function(fn, undefined) {
 
     fn.prototype.init = function() {
         console.log('Booting...');
+
+        var Stage = Game.engine.ui.Stage,
+        stage = new Stage();
+        stage.init();
     };
 
     return fn;
