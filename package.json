@@ -31,5 +31,4 @@
         "gulp-coveralls"        : "~0.1.4",
         "gulp-clean"            : "~0.3.1"
     }
-
 }

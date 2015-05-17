@@ -1,4 +1,5 @@
 # jside-scrolling
+[![GitHub version](https://badge.fury.io/gh/madureira%2Fjside-scrolling.svg)](http://badge.fury.io/gh/madureira%2Fjside-scrolling) [![Dependency Status](https://www.versioneye.com/user/projects/55582dbcb2ff6d477b000058/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55582dbcb2ff6d477b000058)
 
 A small javascript engine to develop side-scrolling platform games.
 
