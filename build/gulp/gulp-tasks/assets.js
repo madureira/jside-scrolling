@@ -7,7 +7,6 @@
  * @param plugins Object
  * @param sourceFiles Array/String
  * @param destinationFolder String
- * @param fileName String
  *
  * @return task
  *

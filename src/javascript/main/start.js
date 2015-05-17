@@ -2,14 +2,14 @@
 Game.ready = setInterval(function() {
     if (document.readyState === "complete") {
         clearInterval(Game.ready);
-        console.log("Content loaded");
+        Logger.info('Content loaded');
         Game.start();
     }
 }, 10);
 
 // Init the game
 Game.start = function() {
-    console.log("Starting...");
+    Logger.info('Starting...');
 
     var Boot = Game.engine.boot.Boot,
     boot = new Boot();

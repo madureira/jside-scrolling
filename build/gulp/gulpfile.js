@@ -12,8 +12,22 @@ var BASE_DIR = '../../',
     JS_VENDORS_FILES = [ BASE_DIR + 'src/javascript/vendors/**/*.js' ],
     JS_SOURCE_FILES = [
         BASE_DIR + 'src/javascript/main/core/config/Properties.js',
-        BASE_DIR + 'src/javascript/main/core/util/Helpful.js',
+        BASE_DIR + 'src/javascript/main/core/util/**/*.js',
         BASE_DIR + 'src/javascript/main/core/package/Manager.js',
+
+
+        BASE_DIR + 'src/javascript/main/engine/example/GameObject.js',
+        BASE_DIR + 'src/javascript/main/engine/example/VisualGameObject.js',
+        BASE_DIR + 'src/javascript/main/engine/example/RepeatingGameObject.js',
+        BASE_DIR + 'src/javascript/main/engine/example/Bounce.js',
+        BASE_DIR + 'src/javascript/main/engine/example/Utils.js',
+        BASE_DIR + 'src/javascript/main/engine/example/ApplicationManager.js',
+        BASE_DIR + 'src/javascript/main/engine/example/GameObjectManager.js',
+        BASE_DIR + 'src/javascript/main/engine/example/Main.js',
+
+
+
+
         BASE_DIR + 'src/javascript/main/engine/**/*.js'
     ],
     CSS_SOURCE_FILES = [

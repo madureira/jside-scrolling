@@ -11,12 +11,14 @@ Game.define('Main', 'engine/ui/stage', (function(fn, undefined) {
     'use strict';
 
     fn.prototype.init = function() {
-        console.log('Building stage...');
+        Logger.info('Building stage...');
 
-        var viewport = Game.templates.stage_viewport();
+        var viewport = Game.templates.stage_viewport({
+            width: Game.settings.viewport.width, height: Game.settings.viewport.height
+        });
         var mainStage = Game.templates.stage_main({ "viewport": viewport } );
 
-        var $stage = document.getElementById('stage');
+        var $stage = Game.$.byId('stage');
         $stage.insertAdjacentHTML('beforeend', mainStage);
     };
 
