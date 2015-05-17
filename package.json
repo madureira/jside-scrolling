@@ -1,0 +1,23 @@
+{
+    "name"              : "jside-scrolling",
+    "version"           : "0.0.1",
+    "description"       : "A small javascript engine to develop side-scrolling platform games.",
+    "keywords"          : [ "sidescrolling", "javascript", "nodejs" ],
+
+    "author"            : "Rafael Madureira dos Santos",
+
+    "main"              : "public/index.html",
+
+    "scripts"           : {
+        "build" : "gulp --cwd build/gulp/",
+        "watch" : "gulp --cwd build/gulp/ watch"
+    },
+
+    "devDependencies"   : {
+        "gulp"                  : "~3.8.11",
+        "gulp-load-plugins"     : "~0.10.0",
+        "gulp-concat"           : "~2.5.2"
+    },
+
+    "engines"         : { "node": ">= 0.12.3" }
+}
