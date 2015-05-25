@@ -10,20 +10,30 @@
 Game.define('GameImage', 'engine/components', (function(fn, undefined) {
     'use strict';
 
-    fn = function(context, imgSrc, posX, posY, width, height, callback) {
-        this.context = context;
-        this.x = posX;
-        this.y = posY;
-        this.w = width;
-        this.h = height;
+    fn = function(context, options) {
+
+        var defaultSettings = {
+            imgSrc: '',
+            posX: 0,
+            posY: 0,
+            width: 0,
+            height: 0,
+            infinity: false
+        };
+
+        var settings = Game.Helpful.mergeObjects(options, defaultSettings);
+
+        this.context    = context;
+        this.x          = settings.posX;
+        this.y          = settings.posY;
+        this.w          = settings.width;
+        this.h          = settings.height;
+        this.infinity   = settings.infinity;
 
         var img = new Image();
-        img.src = '../bin/img/' + imgSrc;
+        img.src = '../bin/img/' + settings.imgSrc;
 
         this.image = img;
-        this.image.onload = function () {
-            callback();
-        };
     };
 
     fn.prototype.draw = function() {
