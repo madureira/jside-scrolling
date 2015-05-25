@@ -46,9 +46,9 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
                 lvlImage.draw();
                 lvlImage.x -= 5;
-            }, 100);
+            }, 30);
 
-        }, 500);
+        }, 100);
     };
 
 
