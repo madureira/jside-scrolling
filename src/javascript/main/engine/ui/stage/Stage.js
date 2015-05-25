@@ -16,8 +16,6 @@ Game.define('Stage', 'engine/ui/stage', (function(fn, undefined) {
     fn = function() {
         this.canvas = null;
         this.context2D = null;
-        this.backBuffer = null;
-        this.backBufferContext2D = null;
 
         // import scene manager
         Scene = Game.engine.scene.SceneManager;
@@ -38,15 +36,11 @@ Game.define('Stage', 'engine/ui/stage', (function(fn, undefined) {
 
         this.canvas = Game.$.byId('board');
         this.context2D = this.canvas.getContext('2d');
-        this.backBuffer = document.createElement('canvas');
-        this.backBuffer.width = this.canvas.width;
-        this.backBuffer.height = this.canvas.height;
-        this.backBufferContext2D = this.backBuffer.getContext('2d');
     };
 
     fn.prototype.buildScene = function() {
         var scene = new Scene();
-        scene.init();
+        scene.init(this);
     };
 
     return fn;

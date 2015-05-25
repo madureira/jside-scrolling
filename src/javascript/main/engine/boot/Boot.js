@@ -26,7 +26,7 @@ Game.define('Boot', 'engine/boot', (function(fn, undefined) {
         stage.buildScene();
 
         // init example
-        init();
+        //init();
     };
 
     return fn;
