@@ -28,11 +28,11 @@ Test.init = function() {
 
 Test.draw = function(context, image, startPosX, imgW, canvasWidth, canvasHeight) {
 
-    var FPS = 1000/30;
+    var FPS = 1000/60;
 
     var secondPosX;
 
-    setInterval(function() {
+    var time = setInterval(function() {
         context.clearRect(0,0,canvasWidth, canvasHeight);
 
         context.drawImage(image, startPosX, 0);
@@ -42,14 +42,15 @@ Test.draw = function(context, image, startPosX, imgW, canvasWidth, canvasHeight)
         if (startPosX < canvasWidth) {
             context.drawImage(image, secondPosX, 0);
 
-            if (Math.abs(startPosX) > canvasWidth) {
-                startPosX = secondPosX - secondPosX;
-            }
+            var pos = canvasWidth - Math.abs(startPosX);
+            var size = canvasWidth - imgW;
 
-            //startPosX = secondPosX;
+            if (pos <= size) {
+                startPosX = secondPosX;
+            }
         }
 
-        startPosX -= 5;
+        startPosX -= 1;
     }, FPS);
 };
 
@@ -57,7 +58,7 @@ Test.draw = function(context, image, startPosX, imgW, canvasWidth, canvasHeight)
 Test.insertCanvas = function() {
     var canvas = document.createElement('canvas');
     canvas.id = 'viewport';
-    canvas.width = 800;
+    canvas.width = 600;
     canvas.height = 300;
     canvas.style.border = '1px solid red';
 
