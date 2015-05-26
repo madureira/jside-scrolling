@@ -31,6 +31,10 @@ Game.Helpful = {
     },
 
     mergeObjects: function(source, target) {
+        if (source === undefined) {
+            return target;
+        }
+
         for (var property in source) {
             if (source[property] && source[property].constructor && source[property].constructor === Object) {
                 target[property] = target[property] || {};

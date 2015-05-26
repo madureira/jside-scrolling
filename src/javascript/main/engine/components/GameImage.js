@@ -37,7 +37,28 @@ Game.define('GameImage', 'engine/components', (function(fn, undefined) {
     };
 
     fn.prototype.draw = function() {
-        this.context.drawImage(this.image, this.x, this.y, this.w, this.h);
+        if (this.infinity) {
+            this.context.drawImage(this.image, this.x, this.y, this.w, this.h);
+
+            this.secondPosX = this.w + this.x;
+
+            if (this.x < Game.settings.viewport.width) {
+                this.context.drawImage(this.image, this.secondPosX, this.y, this.w, this.h);
+                var pos = Game.settings.viewport.width - Math.abs(this.x);
+                var size = Game.settings.viewport.width - this.w;
+
+                if (pos <= size) {
+                    this.x = this.secondPosX;
+                }
+            }
+
+        } else {
+            this.context.drawImage(this.image, this.x, this.y, this.w, this.h);
+        }
+    };
+
+    fn.prototype.clearStage = function() {
+        this.context.clearRect(0, 0, Game.settings.viewport.width, Game.settings.viewport.height);
     };
 
     return fn;

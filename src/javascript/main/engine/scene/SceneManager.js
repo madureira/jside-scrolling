@@ -12,41 +12,42 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var ctx = stage.context2D;
 
-        var levelImage = {
+        var horzImage = new GameImage(ctx, {
+            imgSrc: 'parallax/jungle-sky-2x.png',
+            width: 512,
+            height: 448,
+            infinity: true
+        });
+
+        var bkgImage = new GameImage(ctx, {
+            imgSrc: 'parallax/jungle-trees-fill-dark-2.png',
+            height: 512,
+            width: 512,
+            infinity: true
+        });
+
+        var lvlImage = new GameImage(ctx, {
             imgSrc: 'level/1-1.png',
             width: 5376,
             height: 512
-        };
-
-        var backgroundImage = {
-            imgSrc: 'parallax/jungle-trees-fill-dark-2.png',
-            height: 512,
-            width: 512
-        };
-
-        var horizonImage = {
-            imgSrc: 'parallax/jungle-sky-2x.png',
-            width: 512,
-            height: 448
-        };
-
-        var horzImage = new GameImage(ctx, horizonImage);
-        var bkgImage = new GameImage(ctx, backgroundImage);
-        var lvlImage = new GameImage(ctx, levelImage);
+        });
 
         setTimeout(function() {
 
             setInterval(function() {
-                ctx.clearRect(0, 0, Game.settings.viewport.width, Game.settings.viewport.height);
+                horzImage.clearStage();
+
                 horzImage.draw();
-                horzImage.x -= 2;
+                horzImage.x -= 1;
 
                 bkgImage.draw();
                 bkgImage.x -= 3;
 
+
                 lvlImage.draw();
                 lvlImage.x -= 5;
-            }, 30);
+
+            }, 1000 / Game.settings.FPS);
 
         }, 100);
     };
