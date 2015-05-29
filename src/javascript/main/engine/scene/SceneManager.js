@@ -14,7 +14,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var horzImage = new GameImage(ctx, {
             imgSrc: 'parallax/jungle-sky-2x.png',
-            width: 512,
+            width: 610,
             height: 448,
             infinity: true
         });
@@ -22,7 +22,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var bkgImage = new GameImage(ctx, {
             imgSrc: 'parallax/jungle-trees-fill-dark-2.png',
             height: 512,
-            width: 512,
+            width: 600,
             infinity: true
         });
 
@@ -43,13 +43,13 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
                 bkgImage.draw();
                 bkgImage.x -= 3;
 
-
                 lvlImage.draw();
                 lvlImage.x -= 5;
 
             }, 1000 / Game.settings.FPS);
 
         }, 100);
+
     };
 
 
