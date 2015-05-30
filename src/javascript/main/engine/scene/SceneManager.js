@@ -4,11 +4,23 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     var GameImage;
     var Controller;
 
+    var HORIZON_SPEED = 1;
+    var BACKGROUND_SPEED = 2;
+    var LEVEL_SPEED = 5;
+
     fn = function() {
         GameImage = Game.engine.components.GameImage;
         Controller = Game.engine.input.Controller;
     };
 
+    /**
+     * Responsible to put all elements in the scene.
+     *
+     * @param {Canvas} stage
+     *
+     * @return void
+     *
+     */
     fn.prototype.init = function(stage) {
         Logger.info('Init scene');
 
@@ -17,21 +29,21 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var ctx = stage.context2D;
 
-        var horzImage = new GameImage(ctx, {
+        var horizonParallax = new GameImage(ctx, {
             imgSrc: 'parallax/jungle-sky-2x.png',
             width: 610,
             height: 448,
             infinity: true
         });
 
-        var bkgImage = new GameImage(ctx, {
+        var backgroundParallax = new GameImage(ctx, {
             imgSrc: 'parallax/jungle-trees-fill-dark-2.png',
             height: 512,
             width: 600,
             infinity: true
         });
 
-        var lvlImage = new GameImage(ctx, {
+        var levelImage = new GameImage(ctx, {
             imgSrc: 'level/1-1.png',
             width: 5376,
             height: 512
@@ -40,11 +52,11 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         setTimeout(function() {
 
             setInterval(function() {
-                _clearStage(horzImage);
+                _clearStage(horizonParallax);
 
-                _moveTexture(horzImage, controller, 1);
-                _moveTexture(bkgImage, controller, 2);
-                _moveTexture(lvlImage, controller, 5);
+                _moveImage(horizonParallax, controller, HORIZON_SPEED);
+                _moveImage(backgroundParallax, controller, BACKGROUND_SPEED);
+                _moveImage(levelImage, controller, LEVEL_SPEED);
 
             }, 1000 / Game.settings.FPS);
 
@@ -52,7 +64,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
     };
 
-    function _moveTexture(image, controller, speed) {
+    function _moveImage(image, controller, speed) {
         image.draw();
 
         if (controller.right) {

@@ -17,6 +17,7 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
     // Default contructor
     fn = function() {
         Logger.info('Initing controller');
+
         // move to up
         this.up = false;
 
@@ -30,6 +31,12 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
         this.left = false;
     };
 
+    /**
+     * Create the listener to keyboard input.
+     *
+     * @return void
+     *
+     */
     fn.prototype.listening = function() {
         var self = this;
 
@@ -86,6 +93,7 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
             };
         };
     };
+
 
     return fn;
 
