@@ -2,13 +2,18 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     'use strict';
 
     var GameImage;
+    var Controller;
 
     fn = function() {
         GameImage = Game.engine.components.GameImage;
+        Controller = Game.engine.input.Controller;
     };
 
     fn.prototype.init = function(stage) {
         Logger.info('Init scene');
+
+        var controller = new Controller();
+        controller.listening();
 
         var ctx = stage.context2D;
 
@@ -35,22 +40,31 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         setTimeout(function() {
 
             setInterval(function() {
-                horzImage.clearStage();
+                _clearStage(horzImage);
 
-                horzImage.draw();
-                horzImage.x -= 1;
-
-                bkgImage.draw();
-                bkgImage.x -= 3;
-
-                lvlImage.draw();
-                lvlImage.x -= 5;
+                _moveTexture(horzImage, controller, 1);
+                _moveTexture(bkgImage, controller, 2);
+                _moveTexture(lvlImage, controller, 5);
 
             }, 1000 / Game.settings.FPS);
 
         }, 100);
 
     };
+
+    function _moveTexture(image, controller, speed) {
+        image.draw();
+
+        if (controller.right) {
+            image.x -= speed;
+        } else if (controller.left) {
+            image.x += speed;
+        }
+    }
+
+    function _clearStage(imageRef) {
+        imageRef.clearStage();
+    }
 
 
     return fn;
