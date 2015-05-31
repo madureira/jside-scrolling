@@ -42,7 +42,7 @@ Game.define('GameImage', 'engine/components', (function(fn, undefined) {
         }
 
         var img = new Image();
-        img.src = '../bin/img/' + settings.imgSrc;
+        img.src = Game.settings.path.assets.image + settings.imgSrc;
 
         this.image = img;
     };

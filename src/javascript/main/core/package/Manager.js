@@ -33,10 +33,7 @@ Game.define = Game.define || function(clazz, namespace, object) {
             if (i === 0) {
                 var implementation = {};
 
-                switch(rootPackage) {
-                    default:
-                        implementation = object(function(){});
-                }
+                implementation = object(function(){});
 
                 tmp[list[i]] = implementation;
             } else {

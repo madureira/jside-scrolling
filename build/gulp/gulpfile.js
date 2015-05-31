@@ -6,7 +6,7 @@ var plugins = require('gulp-load-plugins')();
 var BASE_DIR = '../../',
     JS_DEST_DIR = BASE_DIR + 'bin/js/',
     CSS_DEST_DIR = BASE_DIR + 'bin/css/',
-    ASSETS_DEST_DIR = BASE_DIR + 'bin/img/',
+    ASSETS_DEST_DIR = BASE_DIR + 'bin/',
     JS_START_FILES = [ BASE_DIR + 'src/javascript/main/start.js' ],
     TEMPLATES_FILES = [ BASE_DIR + 'src/templates/ui/**/*.tmpl' ],
     JS_VENDORS_FILES = [ BASE_DIR + 'src/javascript/vendors/**/*.js' ],
@@ -25,7 +25,9 @@ var BASE_DIR = '../../',
     ASSETS_FILES = [
         BASE_DIR + 'src/assets/**/*.png',
         BASE_DIR + 'src/assets/**/*.jpg',
-        BASE_DIR + 'src/assets/**/*.gif'
+        BASE_DIR + 'src/assets/**/*.gif',
+        BASE_DIR + 'src/assets/**/*.mp3',
+        BASE_DIR + 'src/assets/**/*.ogg'
     ];
 
 

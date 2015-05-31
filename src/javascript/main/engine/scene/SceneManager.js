@@ -1,18 +1,23 @@
 Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     'use strict';
 
-    var GameImage;
-    var Controller;
+    var GameImage,
+        Controller,
+        Sound,
+        SoundManager;
 
-    var HORIZON_SPEED = 5;
-    var BACKGROUND_SPEED = 8;
-    var LEVEL_SPEED = 12;
 
-    var SCREEN_SCALE = 1.9;
+    var TIME_TO_START = 500, // miliseconds
+        HORIZON_SPEED = 5,
+        BACKGROUND_SPEED = 8,
+        LEVEL_SPEED = 12,
+        SCREEN_SCALE = 1.9;
 
     fn = function() {
         GameImage = Game.engine.components.GameImage;
         Controller = Game.engine.input.Controller;
+        Sound = Game.engine.sound.Sound;
+        SoundManager = Game.engine.sound.SoundManager;
     };
 
     /**
@@ -66,11 +71,30 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             limitRight: -5049
         });
 
+        var soundTheme2 = new Sound({
+            id: 'theme2-1-1',
+            autoplay: false,
+            repeat: false
+        });
+
+        var soundTheme = new Sound({
+            id: 'theme-1-1',
+            autoplay: true,
+            repeat: false,
+            whenFinish: soundTheme2
+        });
+
+        var soundManager = new SoundManager();
+        soundManager.add(soundTheme2);
+        soundManager.add(soundTheme);
+        soundManager.play();
+
 
         setTimeout(function() {
 
+            soundManager.play();
+
             setInterval(function() {
-                console.log('>> ' + levelImage.x);
 
                 _clearStage(horizonParallax);
 
@@ -80,7 +104,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
             }, 1000 / Game.settings.FPS);
 
-        }, 100);
+        }, TIME_TO_START);
 
     };
 
