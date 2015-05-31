@@ -19,6 +19,7 @@ var BASE_DIR = '../../',
     CSS_SOURCE_FILES = [
         BASE_DIR + 'src/stylesheet/vendors/rest.less',
         BASE_DIR + 'src/stylesheet/vendors/**/*.less',
+        BASE_DIR + 'src/stylesheet/ui/main.less',
         BASE_DIR + 'src/stylesheet/ui/**/*.less'
     ],
     ASSETS_FILES = [

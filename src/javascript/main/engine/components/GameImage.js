@@ -18,17 +18,28 @@ Game.define('GameImage', 'engine/components', (function(fn, undefined) {
             posY: 0,
             width: 0,
             height: 0,
+            limitUp: 0,
+            limitDown: 0,
+            limitLeft: 0,
+            limitRight: 0,
             infinity: false
         };
 
         var settings = Game.Helpful.mergeObjects(options, defaultSettings);
 
         this.context    = context;
+        this.infinity   = settings.infinity;
         this.x          = settings.posX;
         this.y          = settings.posY;
         this.w          = settings.width;
         this.h          = settings.height;
-        this.infinity   = settings.infinity;
+        this.lmtU       = settings.limitUp;
+        this.lmtD       = settings.limitDown;
+
+        if (!this.infinity) {
+            this.lmtL   = settings.limitLeft;
+            this.lmtR   = settings.limitRight;
+        }
 
         var img = new Image();
         img.src = '../bin/img/' + settings.imgSrc;
@@ -55,6 +66,7 @@ Game.define('GameImage', 'engine/components', (function(fn, undefined) {
         } else {
             this.context.drawImage(this.image, this.x, this.y, this.w, this.h);
         }
+
     };
 
     fn.prototype.clearStage = function() {

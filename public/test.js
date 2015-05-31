@@ -28,7 +28,7 @@ Test.init = function() {
 
 Test.draw = function(context, image, startPosX, imgW, canvasWidth, canvasHeight) {
 
-    var FPS = 1000/60;
+    var FPS = 1000/30;
 
     var secondPosX;
 
@@ -50,7 +50,8 @@ Test.draw = function(context, image, startPosX, imgW, canvasWidth, canvasHeight)
             }
         }
 
-        startPosX -= 1;
+        startPosX -= 5;
+
     }, FPS);
 };
 
@@ -58,7 +59,7 @@ Test.draw = function(context, image, startPosX, imgW, canvasWidth, canvasHeight)
 Test.insertCanvas = function() {
     var canvas = document.createElement('canvas');
     canvas.id = 'viewport';
-    canvas.width = 600;
+    canvas.width = 800;
     canvas.height = 300;
     canvas.style.border = '1px solid red';
 
