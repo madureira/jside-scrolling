@@ -11,8 +11,8 @@ Game.settings.path.assets = Game.settings.path.assets || {};
 
 
 // Game settings
-Game.settings.viewport.width =  600;
-Game.settings.viewport.height = 460;
+Game.settings.viewport.width =  640;
+Game.settings.viewport.height = 480;
 
 Game.settings.isLoggerEnabled = true;
 Game.settings.FPS = 30;
