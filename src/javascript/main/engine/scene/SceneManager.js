@@ -38,27 +38,25 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         ctx.scale(SCREEN_SCALE, SCREEN_SCALE);
 
         var horizonParallax = new GameImage(ctx, {
-            imgSrc: 'parallax/jungle-sky-2x.png',
-            width: 610,
-            height: 448,
-            posY: -60,
+            imgSrc: 'parallax/horizon_parallax.png',
+            width: 10240,
+            height: 512,
+            posY: -80,
             limitUp: -60,
             limitDown: -100,
             limitLeft: 0,
-            limitRight: 1000,
-            infinity: true
+            limitRight: -2100
         });
 
         var backgroundParallax = new GameImage(ctx, {
-            imgSrc: 'parallax/jungle-trees-fill-dark-2.png',
+            imgSrc: 'parallax/tree_parallax.png',
+            width: 10240,
             height: 512,
-            width: 600,
-            posY: -125,
+            posY: -100,
             limitUp: -125,
             limitDown: -180,
             limitLeft: 0,
-            limitRight: 1000,
-            infinity: true
+            limitRight: -3355
         });
 
         var levelImage = new GameImage(ctx, {
