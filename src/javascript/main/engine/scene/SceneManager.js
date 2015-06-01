@@ -7,7 +7,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         SoundManager;
 
 
-    var TIME_TO_START = 500, // miliseconds
+    var TIME_TO_START = 2000, // miliseconds
         HORIZON_SPEED = 5,
         BACKGROUND_SPEED = 8,
         LEVEL_SPEED = 12,
@@ -85,7 +85,6 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var soundManager = new SoundManager();
         soundManager.add(soundTheme2);
         soundManager.add(soundTheme);
-        soundManager.play();
 
 
         setTimeout(function() {
@@ -101,7 +100,6 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
                 _moveImage(levelImage, controller, LEVEL_SPEED);
 
             }, 1000 / Game.settings.FPS);
-            //}, 1000 / 60);
 
         }, TIME_TO_START);
 
