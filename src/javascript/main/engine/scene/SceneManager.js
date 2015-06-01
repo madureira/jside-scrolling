@@ -42,10 +42,10 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             width: 10240,
             height: 512,
             posY: -80,
-            limitUp: -60,
+            limitUp: -80,
             limitDown: -100,
             limitLeft: 0,
-            limitRight: -2100
+            limitRight: -2080
         });
 
         var backgroundParallax = new GameImage(ctx, {
@@ -53,10 +53,10 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             width: 10240,
             height: 512,
             posY: -100,
-            limitUp: -125,
+            limitUp: -100,
             limitDown: -180,
             limitLeft: 0,
-            limitRight: -3355
+            limitRight: -3325
         });
 
         var levelImage = new GameImage(ctx, {
@@ -66,7 +66,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             limitUp: 0,
             limitDown: -230,
             limitLeft: 0,
-            limitRight: -5049
+            limitRight: -5000
         });
 
         var soundTheme2 = new Sound({
@@ -101,6 +101,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
                 _moveImage(levelImage, controller, LEVEL_SPEED);
 
             }, 1000 / Game.settings.FPS);
+            //}, 1000 / 60);
 
         }, TIME_TO_START);
 
