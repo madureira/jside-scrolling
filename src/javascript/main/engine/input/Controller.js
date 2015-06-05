@@ -47,7 +47,7 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
     }
 
     function _initController(self) {
-        if (!_hasGamepadSupport() && gamepadIsConnected) {
+        if (_hasGamepadSupport() && gamepadIsConnected) {
             Logger.info('Selecting gamepad as default controller');
             self.controller = new Gamepad();
         } else {
