@@ -8,7 +8,10 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
     'use strict';
 
     var Keyboard,
-        Gamepad;
+        Gamepad,
+        connectedGamepad = false,
+        controller = null,
+        connectedGamepad = false;
 
 
     fn = function() {
@@ -17,15 +20,25 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
         Keyboard = Game.engine.input.Keyboard;
         Gamepad = Game.engine.input.Gamepad;
 
+        _updateConnectedGamepad();
+
         return _availableController();
     };
 
+    function _updateConnectedGamepad() {
+        console.log('Listener');
+        var hasGP = setInterval(function() {
+            if (_getGamepad() !== undefined) {
+                connectedGamepad = true;
+                console.log('tem controle');
+            } else {
+                console.log('Nao tem controle');
+            }
+        }, 1000);
+    }
+
     function _availableController() {
         Logger.info('Selecting the available controller');
-
-        var controller = null;
-
-        console.log(_getGamepad());
 
         if (!_hasGamepadSupport()) {
             controller = new Gamepad();
