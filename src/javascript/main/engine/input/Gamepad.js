@@ -37,6 +37,16 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
         console.log('GAMEPAD');
     };
 
+    function _mappingButtons() {
+        for(var i=0; i < gp.buttons.length; i++) {
+            console.log(gp.buttons[i]);
+        }
+    }
+
+    function _getGamepad() {
+        return navigator.getGamepads()[0];
+    }
+
 
     return fn;
 
