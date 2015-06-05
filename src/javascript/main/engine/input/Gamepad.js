@@ -17,7 +17,7 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
 
 
     fn = function() {
-        Logger.inf('Initing gamepad controller');
+        Logger.info('Configuring gamepad controller');
 
         // move to up
         this.up = false;
@@ -31,6 +31,10 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
         // move to left
         this.left = false;
 
+    };
+
+    fn.prototype.init = function() {
+        console.log('GAMEPAD');
     };
 
 
