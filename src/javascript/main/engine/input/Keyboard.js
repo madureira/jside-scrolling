@@ -16,7 +16,7 @@ Game.define('Keyboard', 'engine/input', (function(fn, undefined) {
 
     // Default contructor
     fn = function() {
-        Logger.info('Initing keyboard controller');
+        Logger.info('Configing keyboard controller');
 
         // move to up
         this.up = false;

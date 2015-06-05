@@ -23,10 +23,7 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
         Gamepad = Game.engine.input.Gamepad;
 
         _initController(this);
-
         _updateConnectedGamepad(this);
-
-        return this.controller;
     };
 
     function _updateConnectedGamepad(self) {
@@ -37,7 +34,6 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
                 if (self.currentController !== 'KEYBOARD') {
                     self.currentController = 'KEYBOARD';
                     _initController(self);
-                    console.log('KEYBOARD');
                 }
             } else {
                 gamepadIsConnected = true;
@@ -45,7 +41,6 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
                 if (self.currentController !== 'GAMEPAD') {
                     self.currentController = 'GAMEPAD';
                     _initController(self);
-                    console.log('GAMEPAD');
                 }
             }
         }, 1000);
@@ -59,6 +54,8 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
             Logger.info('Selecting keyboard as default controller');
             self.controller = new Keyboard();
         }
+
+        self.controller.init();
     };
 
     function _getGamepad() {

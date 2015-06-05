@@ -107,6 +107,8 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     function _moveImage(image, controller, speed) {
         image.draw();
 
+        controller = controller.controller;
+
         if (controller.right) {
             image.x -= speed;
         } else if (controller.left) {
