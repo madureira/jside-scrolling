@@ -30,8 +30,6 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
     };
 
     function _updateConnectedGamepad(self) {
-        console.log('Listener for controller change');
-
         setInterval(function() {
             if (_getGamepad() === undefined) {
                 gamepadIsConnected = false;
@@ -54,11 +52,11 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
     }
 
     function _initController(self) {
-        Logger.info('Selecting the available controller');
-
         if (!_hasGamepadSupport() && gamepadIsConnected) {
+            Logger.info('Selecting gamepad as default controller');
             self.controller = new Gamepad();
         } else {
+            Logger.info('Selecting keyboard as default controller');
             self.controller = new Keyboard();
         }
     };
