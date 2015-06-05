@@ -10,45 +10,57 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
     var Keyboard,
         Gamepad,
         connectedGamepad = false,
-        controller = null,
-        connectedGamepad = false;
+        gamepadIsConnected = false;
 
 
     fn = function() {
         Logger.info('Initing controller');
 
+        this.controller = null;
+        this.currentController = 'KEYBOARD';
+
         Keyboard = Game.engine.input.Keyboard;
         Gamepad = Game.engine.input.Gamepad;
 
-        _updateConnectedGamepad();
+        _initController(this);
 
-        return _availableController();
+        _updateConnectedGamepad(this);
+
+        return this.controller;
     };
 
-    function _updateConnectedGamepad() {
-        console.log('Listener');
-        var hasGP = setInterval(function() {
-            if (_getGamepad() !== undefined) {
-                connectedGamepad = true;
-                console.log('tem controle');
+    function _updateConnectedGamepad(self) {
+        console.log('Listener for controller change');
+
+        setInterval(function() {
+            if (_getGamepad() === undefined) {
+                gamepadIsConnected = false;
+
+                if (self.currentController !== 'KEYBOARD') {
+                    self.currentController = 'KEYBOARD';
+                    _initController(self);
+                    console.log('KEYBOARD');
+                }
             } else {
-                console.log('Nao tem controle');
+                gamepadIsConnected = true;
+
+                if (self.currentController !== 'GAMEPAD') {
+                    self.currentController = 'GAMEPAD';
+                    _initController(self);
+                    console.log('GAMEPAD');
+                }
             }
         }, 1000);
     }
 
-    function _availableController() {
+    function _initController(self) {
         Logger.info('Selecting the available controller');
 
-        if (!_hasGamepadSupport()) {
-            controller = new Gamepad();
+        if (!_hasGamepadSupport() && gamepadIsConnected) {
+            self.controller = new Gamepad();
         } else {
-            controller = new Keyboard();
+            self.controller = new Keyboard();
         }
-
-        controller.init();
-
-        return controller;
     };
 
     function _getGamepad() {
