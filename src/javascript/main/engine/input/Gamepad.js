@@ -42,7 +42,7 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
         var gp = _getGamepad();
 
         for(var i=0; i < gp.axes.length; i++) {
-            console.log(gp.axes[i]);
+            console.log(gp.axes[i] + ',' + gp.axes[i+1]);
         }
     }
 
