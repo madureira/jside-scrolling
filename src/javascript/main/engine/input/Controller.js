@@ -7,92 +7,44 @@
 Game.define('Controller', 'engine/input', (function(fn, undefined) {
     'use strict';
 
-    var KEYBOARD = {
-        UP: [38, 87],
-        DOWN: [40, 83],
-        RIGHT: [39, 68],
-        LEFT: [37, 65]
-    };
+    var Keyboard,
+        Gamepad;
 
-    // Default contructor
+
     fn = function() {
         Logger.info('Initing controller');
 
-        // move to up
-        this.up = false;
+        Keyboard = Game.engine.input.Keyboard;
+        Gamepad = Game.engine.input.Gamepad;
 
-        // move to down
-        this.down = false;
-
-        // move to right
-        this.right = false;
-
-        // move to left
-        this.left = false;
+        return _availableController();
     };
 
-    /**
-     * Create the listener to keyboard input.
-     *
-     * @return void
-     *
-     */
-    fn.prototype.listening = function() {
-        var self = this;
+    function _availableController() {
+        Logger.info('Selecting the available controller');
 
-        document.onkeydown = function(e) {
-            e = e || window.event;
+        var controller = null;
 
-            switch (e.keyCode) {
-                case KEYBOARD.UP[0]:
-                case KEYBOARD.UP[1]:
-                    self.up = true;
-                    break;
+        console.log(_getGamepad());
 
-                case KEYBOARD.DOWN[0]:
-                case KEYBOARD.DOWN[1]:
-                    self.down = true;
-                    break;
+        if (!_hasGamepadSupport()) {
+            controller = new Gamepad();
+        } else {
+            controller = new Keyboard();
+        }
 
-                case KEYBOARD.RIGHT[0]:
-                case KEYBOARD.RIGHT[1]:
-                    self.right = true;
-                    break;
+        controller.init();
 
-                case KEYBOARD.LEFT[0]:
-                case KEYBOARD.LEFT[1]:
-                    self.left = true;
-                    break;
-            };
-        };
-
-
-        document.onkeyup = function(e) {
-            e = e || window.event;
-
-            switch (e.keyCode) {
-                case KEYBOARD.UP[0]:
-                case KEYBOARD.UP[1]:
-                    self.up = false;
-                    break;
-
-                case KEYBOARD.DOWN[0]:
-                case KEYBOARD.DOWN[1]:
-                    self.down = false;
-                    break;
-
-                case KEYBOARD.RIGHT[0]:
-                case KEYBOARD.RIGHT[1]:
-                    self.right = false;
-                    break;
-
-                case KEYBOARD.LEFT[0]:
-                case KEYBOARD.LEFT[1]:
-                    self.left = false;
-                    break;
-            };
-        };
+        return controller;
     };
+
+    function _getGamepad() {
+        return navigator.getGamepads()[0];
+    }
+
+    function _hasGamepadSupport() {
+        return "getGamepads" in navigator;
+    }
 
 
     return fn;

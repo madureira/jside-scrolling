@@ -32,7 +32,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         Logger.info('Init scene');
 
         var controller = new Controller();
-        controller.listening();
+        controller.init();
 
         var ctx = stage.context2D;
         ctx.scale(SCREEN_SCALE, SCREEN_SCALE);
@@ -77,7 +77,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var soundTheme = new Sound({
             id: 'theme-1-1',
-            autoplay: true,
+            //autoplay: true,
             repeat: false,
             whenFinish: soundTheme2
         });
