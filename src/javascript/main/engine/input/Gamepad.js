@@ -42,7 +42,6 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
     };
 
     fn.prototype.init = function() {
-        console.log('GAMEPAD');
         _mappingButtons(this);
     };
 
@@ -71,12 +70,12 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
                     self.up = false;
                 }
 
-                if (gp.axes[0] === NEUTRAL) {
+                if (gp.axes[0] === AXES.NEUTRAL) {
                     self.right = false;
                     self.left = false;
                 }
 
-                if (gp.axes[1] === NEUTRAL) {
+                if (gp.axes[1] === AXES.NEUTRAL) {
                     self.up = false;
                     self.down = false;
                 }
