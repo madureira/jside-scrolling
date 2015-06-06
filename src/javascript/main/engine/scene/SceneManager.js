@@ -8,7 +8,8 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         ResourceLoader;
 
 
-    var HORIZON_SPEED = 5,
+    var TIME_TO_START = 3000, // miliseconds
+        HORIZON_SPEED = 5,
         BACKGROUND_SPEED = 8,
         LEVEL_SPEED = 12,
         SCREEN_SCALE = 1.9;
@@ -104,16 +105,19 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     }
 
     function _gameLoop(soundManager, horizonParallax, backgroundParallax, levelImage, controller) {
-        soundManager.play();
+        setTimeout(function() {
+            soundManager.play();
 
-        setInterval(function() {
-            _clearStage(horizonParallax);
+            setInterval(function() {
+                _clearStage(horizonParallax);
 
-            _moveImage(horizonParallax, controller, HORIZON_SPEED);
-            _moveImage(backgroundParallax, controller, BACKGROUND_SPEED);
-            _moveImage(levelImage, controller, LEVEL_SPEED);
+                _moveImage(horizonParallax, controller, HORIZON_SPEED);
+                _moveImage(backgroundParallax, controller, BACKGROUND_SPEED);
+                _moveImage(levelImage, controller, LEVEL_SPEED);
 
-        }, 1000 / Game.settings.FPS);
+            }, 1000 / Game.settings.FPS);
+
+        }, TIME_TO_START);
     }
 
     function _moveImage(image, controller, speed) {
