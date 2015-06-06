@@ -41,9 +41,13 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
     function _mappingButtons() {
         var gp = _getGamepad();
 
-        for(var i=0; i < gp.axes.length; i++) {
-            console.log(gp.axes[i] + ',' + gp.axes[i+1]);
-        }
+        var $pad = document.getElementById('pad');
+
+        setInterval(function() {
+            for(var i=0; i < gp.axes.length; i++) {
+                $pad.innerHTML = '<span>' + gp.axes[i] + ',' + gp.axes[i+1] + '</span>';
+            }
+        }, 100);
     }
 
     function _getGamepad() {
