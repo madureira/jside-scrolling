@@ -8,8 +8,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         ResourceLoader;
 
 
-    var TIME_TO_START = 2000, // miliseconds
-        HORIZON_SPEED = 5,
+    var HORIZON_SPEED = 5,
         BACKGROUND_SPEED = 8,
         LEVEL_SPEED = 12,
         SCREEN_SCALE = 1.9;
