@@ -19,7 +19,8 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
         UP: -1,
         DOWN: 1,
         RIGHT: 1,
-        LEFT: -1
+        LEFT: -1,
+        NEUTRAL: 0
     };
 
 
@@ -70,13 +71,12 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
                     self.up = false;
                 }
 
-
-                if (gp.axes[0] === 0) {
+                if (gp.axes[0] === NEUTRAL) {
                     self.right = false;
                     self.left = false;
                 }
 
-                if (gp.axes[1] === 0) {
+                if (gp.axes[1] === NEUTRAL) {
                     self.up = false;
                     self.down = false;
                 }
