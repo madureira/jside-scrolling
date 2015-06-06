@@ -45,7 +45,8 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
 
         setInterval(function() {
             for(var i=0; i < gp.axes.length; i++) {
-                $pad.innerHTML = '<span>' + gp.axes[i] + ',' + gp.axes[i+1] + '</span>';
+                //$pad.innerHTML = '<span>' + gp.axes[i] + ',' + gp.axes[i+1] + '</span>';
+                console.log(gp.axes[i] + ',' + gp.axes[i+1]);
             }
         }, 100);
     }
