@@ -15,6 +15,13 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
         LEFT: [37, 65]
     };
 
+    var AXES = {
+        UP: -1,
+        DOWN: 1,
+        RIGHT: 1,
+        LEFT: -1
+    };
+
 
     fn = function() {
         Logger.info('Configuring gamepad controller');
@@ -45,7 +52,21 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
 
         setInterval(function() {
             for(var i=0; i < gp.axes.length; i++) {
-                console.log(gp.axes[0] + ',' + gp.axes[1]);
+                if (gp.axes[1] === AXES.UP) {
+                    this.up = true;
+                    this.down = false;
+                } else if (gp.axes[1] === AXES.DOWN) {
+                    this.down = true;
+                    this.up = false;
+                }
+
+                if (gp.axes[0] === AXES.RIGHT) {
+                    this.right = true;
+                    this.left = false;
+                } else if (gp.axes[1] === AXES.LEFT) {
+                    this.left = true;
+                    this.right = false;
+                }
             }
         }, 100);
     }
