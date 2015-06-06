@@ -66,7 +66,7 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
                     self.right = false;
                 }
             }
-        }, 100);
+        }, 10);
     }
 
     function _getGamepad() {
