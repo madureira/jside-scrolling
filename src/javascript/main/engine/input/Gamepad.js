@@ -52,32 +52,34 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
     function _mappingButtons(self) {
         var gp = _getGamepad();
 
-        for(var i=0; i <= 1; i++) {
-            if (gp.axes[0] === AXES.RIGHT) {
-                self.right = true;
-                self.left = false;
-            } else if (gp.axes[0] === AXES.LEFT) {
-                self.left = true;
-                self.right = false;
-            }
+        if (gp !== undefined) {
+            for(var i=0; i <= 1; i++) {
+                if (gp.axes[0] === AXES.RIGHT) {
+                    self.right = true;
+                    self.left = false;
+                } else if (gp.axes[0] === AXES.LEFT) {
+                    self.left = true;
+                    self.right = false;
+                }
 
-            if (gp.axes[1] === AXES.UP) {
-                self.up = true;
-                self.down = false;
-            } else if (gp.axes[1] === AXES.DOWN) {
-                self.down = true;
-                self.up = false;
-            }
+                if (gp.axes[1] === AXES.UP) {
+                    self.up = true;
+                    self.down = false;
+                } else if (gp.axes[1] === AXES.DOWN) {
+                    self.down = true;
+                    self.up = false;
+                }
 
 
-            if (gp.axes[0] === 0) {
-                self.right = false;
-                self.left = false;
-            }
+                if (gp.axes[0] === 0) {
+                    self.right = false;
+                    self.left = false;
+                }
 
-            if (gp.axes[1] === 0) {
-                self.up = false;
-                self.down = false;
+                if (gp.axes[1] === 0) {
+                    self.up = false;
+                    self.down = false;
+                }
             }
         }
     }
