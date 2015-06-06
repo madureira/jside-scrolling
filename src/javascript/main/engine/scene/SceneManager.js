@@ -99,12 +99,14 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var soundManager = new SoundManager();
         soundManager.add(soundTheme2);
         soundManager.add(soundTheme);
-        soundManager.play();
 
-        _gameLoop(horizonParallax, backgroundParallax, levelImage, controller);
+        // Init the level
+        _gameLoop(soundManager, horizonParallax, backgroundParallax, levelImage, controller);
     }
 
-    function _gameLoop(horizonParallax, backgroundParallax, levelImage, controller) {
+    function _gameLoop(soundManager, horizonParallax, backgroundParallax, levelImage, controller) {
+        soundManager.play();
+
         setInterval(function() {
             _clearStage(horizonParallax);
 
