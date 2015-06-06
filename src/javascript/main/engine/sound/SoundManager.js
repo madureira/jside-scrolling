@@ -20,17 +20,27 @@ Game.define('SoundManager', 'engine/sound', (function(fn, undefined) {
     fn.prototype.add = function(sound) {
         this.sounds.push(sound);
 
+        var event = new Event('ended');
+
         // play next sound
         if (sound.whenFinish !== null && sound.whenFinish !== undefined && (typeof sound.whenFinish === 'object')) {
             var nextSound = sound.whenFinish;
-
-            var event = new Event('ended');
 
             var element = Game.$.byId('sound-' + sound.id);
 
             element.addEventListener('ended', function (e) {
                 nextSound.play();
             });
+
+            if (sound.repeat) {
+                var el = Game.$.byId('sound-' + nextSound.id);
+
+                el.addEventListener('ended', function(e) {
+                    setTimeout(function() {
+                        sound.play();
+                    }, 3000);
+                });
+            }
         }
     };
 

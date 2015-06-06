@@ -4,7 +4,8 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     var GameImage,
         Controller,
         Sound,
-        SoundManager;
+        SoundManager,
+        ResourceLoader;
 
 
     var TIME_TO_START = 2000, // miliseconds
@@ -18,6 +19,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         Controller = Game.engine.input.Controller;
         Sound = Game.engine.sound.Sound;
         SoundManager = Game.engine.sound.SoundManager;
+        ResourceLoader = Game.engine.components.ResourceLoader;
     };
 
     /**
@@ -36,6 +38,19 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var ctx = stage.context2D;
         ctx.scale(SCREEN_SCALE, SCREEN_SCALE);
 
+        var resourceLoader = new ResourceLoader();
+        resourceLoader.load([
+            'parallax/horizon_parallax.png',
+            'parallax/tree_parallax.png',
+            'level/1-1.png',
+            'theme2-1-1',
+            'theme-1-1'
+        ], this, function() {
+            _firstLevelStart(ctx, controller);
+        });
+    };
+
+    function _firstLevelStart(ctx, controller) {
         var horizonParallax = new GameImage(ctx, {
             imgSrc: 'parallax/horizon_parallax.png',
             width: 10240,
@@ -77,31 +92,25 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var soundTheme = new Sound({
             id: 'theme-1-1',
             //autoplay: true,
-            repeat: false,
+            repeat: true,
             whenFinish: soundTheme2
         });
 
         var soundManager = new SoundManager();
         soundManager.add(soundTheme2);
         soundManager.add(soundTheme);
+        soundManager.play();
 
+        setInterval(function() {
+            _clearStage(horizonParallax);
 
-        setTimeout(function() {
+            _moveImage(horizonParallax, controller, HORIZON_SPEED);
+            _moveImage(backgroundParallax, controller, BACKGROUND_SPEED);
+            _moveImage(levelImage, controller, LEVEL_SPEED);
 
-            soundManager.play();
+        }, 1000 / Game.settings.FPS);
 
-            setInterval(function() {
-                _clearStage(horizonParallax);
-
-                _moveImage(horizonParallax, controller, HORIZON_SPEED);
-                _moveImage(backgroundParallax, controller, BACKGROUND_SPEED);
-                _moveImage(levelImage, controller, LEVEL_SPEED);
-
-            }, 1000 / Game.settings.FPS);
-
-        }, TIME_TO_START);
-
-    };
+    }
 
     function _moveImage(image, controller, speed) {
         image.draw();
