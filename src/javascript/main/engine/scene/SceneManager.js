@@ -91,7 +91,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var soundTheme = new Sound({
             id: 'theme-1-1',
-            //autoplay: true,
+            autoplay: true,
             repeat: true,
             whenFinish: soundTheme2
         });
