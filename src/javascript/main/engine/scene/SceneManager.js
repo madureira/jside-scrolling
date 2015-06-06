@@ -23,7 +23,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     };
 
     /**
-     * Responsible to put all elements in the scene.
+     * Responsible to init scene and load all resources.
      *
      * @param {Canvas} stage
      *
@@ -45,7 +45,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             'level/1-1.png',
             'theme2-1-1',
             'theme-1-1'
-        ], this, function() {
+        ], function() {
             _firstLevelStart(ctx, controller);
         });
     };
@@ -101,6 +101,10 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         soundManager.add(soundTheme);
         soundManager.play();
 
+        _gameLoop(horizonParallax, backgroundParallax, levelImage, controller);
+    }
+
+    function _gameLoop(horizonParallax, backgroundParallax, levelImage, controller) {
         setInterval(function() {
             _clearStage(horizonParallax);
 
@@ -109,7 +113,6 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             _moveImage(levelImage, controller, LEVEL_SPEED);
 
         }, 1000 / Game.settings.FPS);
-
     }
 
     function _moveImage(image, controller, speed) {

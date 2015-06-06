@@ -8,7 +8,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
     ];
 
 
-    fn.prototype.load = function(itens, instanceRef, callback) {
+    fn.prototype.load = function(itens, callback) {
         this.callback = callback;
 
         this.imagesLoaded = 0;
