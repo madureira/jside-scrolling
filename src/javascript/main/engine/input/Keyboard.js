@@ -94,6 +94,8 @@ Game.define('Keyboard', 'engine/input', (function(fn, undefined) {
         };
     };
 
+    fn.prototype.check = function() {};
+
 
     return fn;
 

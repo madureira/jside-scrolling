@@ -91,7 +91,6 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
             soundManager.play();
 
             setInterval(function() {
-
                 _clearStage(horizonParallax);
 
                 _moveImage(horizonParallax, controller, HORIZON_SPEED);
@@ -106,6 +105,8 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
     function _moveImage(image, controller, speed) {
         image.draw();
+
+        controller.check();
 
         controller = controller.controller;
 
