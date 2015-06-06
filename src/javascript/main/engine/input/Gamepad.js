@@ -50,6 +50,14 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
 
         setInterval(function() {
             for(var i=0; i < gp.axes.length; i++) {
+                if (gp.axes[0] === AXES.RIGHT) {
+                    self.right = true;
+                    self.left = false;
+                } else if (gp.axes[0] === AXES.LEFT) {
+                    self.left = true;
+                    self.right = false;
+                }
+
                 if (gp.axes[1] === AXES.UP) {
                     self.up = true;
                     self.down = false;
@@ -58,19 +66,15 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
                     self.up = false;
                 }
 
-                if (gp.axes[0] === AXES.RIGHT) {
-                    self.right = true;
-                    self.left = false;
-                } else if (gp.axes[1] === AXES.LEFT) {
-                    self.left = true;
+
+                if (gp.axes[0] === 0) {
                     self.right = false;
+                    self.left = false;
                 }
 
-                if (gp.axes[0] === 0 && gp.axes[1] === 0) {
+                if (gp.axes[1] === 0) {
                     self.up = false;
                     self.down = false;
-                    self.right = false;
-                    self.left = false;
                 }
             }
         }, 1);
