@@ -65,6 +65,13 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
                     self.left = true;
                     self.right = false;
                 }
+
+                if (gp.axes[0] === 0 && gp.axes[1] === 0) {
+                    self.up = false;
+                    self.down = false;
+                    self.right = false;
+                    self.left = false;
+                }
             }
         }, 10);
     }
