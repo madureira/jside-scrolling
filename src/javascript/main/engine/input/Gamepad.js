@@ -8,13 +8,6 @@ Game.define('Gamepad', 'engine/input', (function(fn, undefined) {
     'use strict';
 
 
-    var BUTTON = {
-        UP: [38, 87],
-        DOWN: [40, 83],
-        RIGHT: [39, 68],
-        LEFT: [37, 65]
-    };
-
     var AXES = {
         UP: -1,
         DOWN: 1,

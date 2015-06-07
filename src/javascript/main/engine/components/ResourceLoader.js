@@ -28,7 +28,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             }
         }
 
-        _loadImages(this);
+        _loadSounds(this);
     };
 
     function _loadImages(self) {
@@ -39,7 +39,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             images[index].onload = function() {
                 if (++self.imagesLoaded === self.imageList.length) {
                     console.log('Load all images');
-                    _loadSounds(self);
+                    _callback(self);
                 }
             }
             images[index].src = self.imageList[index];
@@ -54,7 +54,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             sounds[index].addEventListener('canplaythrough', function() {
                 if (++self.soundsLoaded === self.soundList.length) {
                     console.log('Load all sounds');
-                    _callback(self);
+                    _loadImages(self);
                 }
             }, false);
             sounds[index].src = self.soundList[index];
