@@ -9,7 +9,6 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
 
     var Keyboard,
         Gamepad,
-        connectedGamepad = false,
         gamepadIsConnected = false;
 
 

@@ -40,11 +40,11 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var resourceLoader = new ResourceLoader();
         resourceLoader.load([
-            'parallax/horizon_parallax.png',
-            'parallax/tree_parallax.png',
-            'level/1-1.png',
-            'theme2-1-1',
-            'theme-1-1'
+            {image: 'parallax/horizon_parallax.png'},
+            {image: 'parallax/tree_parallax.png'},
+            {image: 'level/1-1.png'},
+            {audio: 'theme2-1-1'},
+            {audio: 'theme-1-1'}
         ], function() {
             _firstLevelStart(ctx, controller);
         });

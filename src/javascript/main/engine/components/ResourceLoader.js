@@ -18,18 +18,25 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
 
         for (var index in itens) {
             var resource = itens[index];
-            var type = resource.substr((~-resource.lastIndexOf(".") >>> 0) + 2);
 
-            if (IMG_TYPES.indexOf(type) >= 0) {
-                this.imageList.push(Game.settings.path.assets.image + resource);
-            } else {
-                this.soundList.push(Game.settings.path.assets.sound + resource + '.mp3');
-                this.soundList.push(Game.settings.path.assets.sound + resource + '.ogg');
+            if (resource.image !== undefined) {
+                var type = _getExtension(resource.image);
+
+                if (IMG_TYPES.indexOf(type) >= 0) {
+                    this.imageList.push(Game.settings.path.assets.image + resource.image);
+                }
+            } else if (resource.audio !== undefined) {
+                this.soundList.push(Game.settings.path.assets.sound + resource.audio + '.mp3');
+                this.soundList.push(Game.settings.path.assets.sound + resource.audio + '.ogg');
             }
         }
 
         _loadSounds(this);
     };
+
+    function _getExtension(filename) {
+        return filename.substr((~-filename.lastIndexOf(".") >>> 0) + 2);
+    }
 
     function _loadImages(self) {
         var images = [];
