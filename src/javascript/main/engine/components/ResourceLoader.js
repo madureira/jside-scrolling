@@ -13,8 +13,10 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
 
         this.imagesLoaded = 0;
         this.soundsLoaded = 0;
+        this.videosLoaded = 0;
         this.imageList = [];
         this.soundList = [];
+        this.videoList = [];
 
         for (var index in itens) {
             var resource = itens[index];
@@ -28,14 +30,39 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             } else if (resource.audio !== undefined) {
                 this.soundList.push(Game.settings.path.assets.sound + resource.audio + '.mp3');
                 this.soundList.push(Game.settings.path.assets.sound + resource.audio + '.ogg');
+            } else if (resource.video !== undefined) {
+                this.videoList.push(Game.settings.path.assets.video + resource.video + '.mp4');
             }
         }
 
-        _loadSounds(this);
+        _loadVideos(this);
     };
 
-    function _getExtension(filename) {
-        return filename.substr((~-filename.lastIndexOf(".") >>> 0) + 2);
+    function _loadVideos(self) {
+        var videos = [];
+
+        for(var index in self.videoList) {
+            videos[index].src = self.videoList[index];
+        }
+
+        console.log('Load all videos');
+
+        _loadSounds(self);
+    }
+
+    function _loadSounds(self) {
+        var sounds = [];
+
+        for(var index in self.soundList) {
+            sounds[index] = new Audio();
+            sounds[index].addEventListener('canplaythrough', function() {
+                if (++self.soundsLoaded === self.soundList.length) {
+                    console.log('Load all sounds');
+                    _loadImages(self);
+                }
+            }, false);
+            sounds[index].src = self.soundList[index];
+        }
     }
 
     function _loadImages(self) {
@@ -53,19 +80,8 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
         }
     }
 
-    function _loadSounds(self) {
-        var sounds = [];
-
-        for(var index in self.soundList) {
-            sounds[index] = new Audio();
-            sounds[index].addEventListener('canplaythrough', function() {
-                if (++self.soundsLoaded === self.soundList.length) {
-                    console.log('Load all sounds');
-                    _loadImages(self);
-                }
-            }, false);
-            sounds[index].src = self.soundList[index];
-        }
+    function _getExtension(filename) {
+        return filename.substr((~-filename.lastIndexOf(".") >>> 0) + 2);
     }
 
     function _callback(self) {
