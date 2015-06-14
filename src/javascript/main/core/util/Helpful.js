@@ -49,6 +49,14 @@ Game.Helpful = {
 
     isNodeWebkit: function() {
         return (typeof process === "object");
+    },
+
+    isObject: function(value) {
+        return (value !== undefined && value !== null && (typeof value === 'object'));
+    },
+
+    isFunction: function(value) {
+        return (typeof value === 'function');
     }
 
 };

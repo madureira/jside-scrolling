@@ -4,6 +4,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
     var GameImage,
         Controller,
         Sound,
+        Video,
         SoundManager,
         ResourceLoader;
 
@@ -18,6 +19,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         GameImage = Game.engine.components.GameImage;
         Controller = Game.engine.input.Controller;
         Sound = Game.engine.sound.Sound;
+        Video = Game.engine.video.Video;
         SoundManager = Game.engine.sound.SoundManager;
         ResourceLoader = Game.engine.components.ResourceLoader;
     };
@@ -92,7 +94,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
 
         var soundTheme = new Sound({
             id: 'theme-1-1',
-            autoplay: true,
+            autoplay: false,
             repeat: true,
             whenFinish: soundTheme2
         });
@@ -104,7 +106,10 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var video = new Video({
             id: 'intro',
             autoplay: true,
-            repeat: false
+            repeat: false,
+            whenFinish: function() {
+                soundTheme.play();
+            }
         });
 
         // Init the level

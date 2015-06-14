@@ -31,7 +31,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
                 this.soundList.push(Game.settings.path.assets.sound + resource.audio + '.mp3');
                 this.soundList.push(Game.settings.path.assets.sound + resource.audio + '.ogg');
             } else if (resource.video !== undefined) {
-                this.videoList.push(Game.settings.path.assets.video + resource.video + '.mp4');
+                this.videoList.push(resource.video + '.mp4');
             }
         }
 
@@ -40,14 +40,25 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
 
     function _loadVideos(self) {
         var videos = [];
+        var VideoUI = Game.engine.ui.video.Video;
 
         for(var index in self.videoList) {
-            videos[index].src = self.videoList[index];
+            var id = _getIdFromVideoPathName(self.videoList[index]);
+            var videoPath = _getPathFromVideoPathName(self.videoList[index]);
+
+            videos[index] = { id: id, videoPath: Game.settings.path.assets.video + videoPath };
         }
 
-        console.log('Load all videos');
+        for (var i=0; i < videos.length; i++) {
+            var video = new VideoUI(videos[i]);
+            video._videoControl.addEventListener('onload', function() {
+                if (++self.videosLoaded === self.videoList.length) {
+                    console.log('Load all videos');
+                    _loadSounds(self);
+                }
+            });
+        }
 
-        _loadSounds(self);
     }
 
     function _loadSounds(self) {
@@ -86,6 +97,26 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
 
     function _callback(self) {
         self.callback();
+    }
+
+    function _getIdFromVideoPathName(pathname) {
+        var fragments = pathname.split('/'),
+        length = fragments.length,
+        fullname = fragments[length-1];
+
+        fullname = fullname.split('.');
+        delete fullname[fullname.length-1];
+
+        return fullname.join('');
+    }
+
+    function _getPathFromVideoPathName(pathname) {
+        pathname = pathname.split('.');
+        delete pathname[pathname.length-1];
+
+        pathname = pathname.join('');
+
+        return pathname;
     }
 
     return fn;

@@ -31,27 +31,38 @@ Game.define('Video', 'engine/video', (function(fn, undefined) {
         this.repeat     = settings.repeat;
         this.whenFinish = settings.whenFinish;
 
-        var videoUi = new VideoUI({
-            id: this.id,
-            videoPath: this.videoPath,
-            width: Game.settings.viewport.width,
-            height: Game.settings.viewport.height,
-            autoplay: this.autoplay
-        });
+        this._videoControl = Game.$.byId('video-' + this.id);
 
-        this._videoControl = videoUi;
+        _manageCallback(this);
 
         return this;
     };
 
+    function _manageCallback(self) {
+        if (Game.Helpful.isFunction(self.whenFinish)) {
+            self._videoControl.addEventListener('ended', function (e) {
+                self.whenFinish();
+                self.hide();
+            });
+        }
+    }
+
     fn.prototype.play = function() {
+        Logger.info('Play video...');
+        this._videoControl.removeClass('hide');
         this._videoControl.play();
     };
 
     fn.prototype.stop = function() {
-        this._videoControl.stop();
+        Logger.info('Pause video...');
+        this._videoControl.addClass('hide');
+        this._videoControl.pause();
     };
 
+    fn.prototype.hide = function() {
+        this._videoControl.addClass('hide');
+        Game.$.byId('videos').addClass('hide');
+    };
 
     return fn;
 

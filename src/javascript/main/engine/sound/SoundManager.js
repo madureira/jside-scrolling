@@ -23,7 +23,7 @@ Game.define('SoundManager', 'engine/sound', (function(fn, undefined) {
         var event = new Event('ended');
 
         // play next sound
-        if (sound.whenFinish !== null && sound.whenFinish !== undefined && (typeof sound.whenFinish === 'object')) {
+        if (Game.Helpful.isObject(sound.whenFinish)) {
             var nextSound = sound.whenFinish;
 
             var element = Game.$.byId('sound-' + sound.id);

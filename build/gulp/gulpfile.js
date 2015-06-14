@@ -27,7 +27,8 @@ var BASE_DIR = '../../',
         BASE_DIR + 'src/assets/**/*.jpg',
         BASE_DIR + 'src/assets/**/*.gif',
         BASE_DIR + 'src/assets/**/*.mp3',
-        BASE_DIR + 'src/assets/**/*.ogg'
+        BASE_DIR + 'src/assets/**/*.ogg',
+        BASE_DIR + 'src/assets/**/*.mp4'
     ];
 
 
@@ -53,6 +54,7 @@ gulp.task('default', [
 
 // Watch file modifications and run tasks
 gulp.task('watch', function() {
+    gulp.start('default');
     gulp.watch(JS_SOURCE_FILES, ['concatMainJs']);
     gulp.watch(JS_START_FILES, ['concatStartJs']);
     gulp.watch(JS_VENDORS_FILES, ['concatStartJs']);
