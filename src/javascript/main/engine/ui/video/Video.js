@@ -32,7 +32,7 @@ Game.define('Video', 'engine/ui/video', (function(fn, undefined) {
         $videos.insertAdjacentHTML('beforeend', videoTemplate);
 
         this._videoControl = Game.$.byId('video-' + options.id);
-        this._videoControl.load();
+        //this._videoControl.load();
 
         var evt = document.createEvent('Event');
         evt.initEvent('onload', true, true);
