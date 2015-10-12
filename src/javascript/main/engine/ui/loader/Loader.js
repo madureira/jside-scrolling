@@ -22,7 +22,7 @@ Game.define('Loader', 'engine/ui/loader', (function(fn, undefined) {
     };
 
     fn.prototype.on = function() {
-        this.this.$loader.addClass('on');
+        this.$loader.addClass('on');
     };
 
     fn.prototype.off = function() {
