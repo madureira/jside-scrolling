@@ -57,7 +57,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
                 if (video._videoControl.duration) {
                     console.log('Video '+ i +', duration: ' + video._videoControl.duration);
                     percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
-                    console.log('Video '+ i +', progress: ' + percent + '%');
+                    console.log('Video '+ i +', progress: ' + Math.round(percent) + '%');
                     if (parseInt(percent) >= 100) {
                         console.log('Video' + i + ', completely loaded!');
                         video._videoControl.currentTime = 1;
