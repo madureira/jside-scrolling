@@ -54,7 +54,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             var percent = 0;
             video._videoControl.addEventListener('progress', function() {
                 if (video._videoControl.duration) {
-                    percent = (video._videoControl.buffered.end() / video._videoControl.duration) * 100;
+                    percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
                     if (parseInt(percent) >= 100) {
                         if (++self.videosLoaded === self.videoList.length) {
                             _loadSounds(self);
