@@ -53,11 +53,16 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             var video = new VideoUI(videos[i]);
             var percent = 0;
             video._videoControl.addEventListener('progress', function() {
+                console.log('Video '+ i +', loading...');
                 if (video._videoControl.duration) {
+                    console.log('Video '+ i +', duration: ' + video._videoControl.duration);
                     percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
+                    console.log('Video '+ i +', progress: ' + percent + '%');
                     if (parseInt(percent) >= 100) {
+                        console.log('Video' + i + ', completely loaded!');
+                        video._videoControl.currentTime = 1;
                         if (++self.videosLoaded === self.videoList.length) {
-                            video._videoControl.currentTime = 1;
+                            console.log('All videos loaded');
                             _loadSounds(self);
                         }
                     }
