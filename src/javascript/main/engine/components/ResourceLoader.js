@@ -53,11 +53,9 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             var video = new VideoUI(videos[i]);
             var percent = 0;
             video._videoControl.addEventListener('progress', function() {
-                console.log('Video '+ i +', loading...');
-
-                var verifyDuration = setInterval(function() {
+                var readyToLoad = setInterval(function() {
                     if (video._videoControl.duration) {
-                        clearInterval(verifyDuration);
+                        clearInterval(readyToLoad);
                         percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
                         console.log('Video '+ i +', progress: ' + Math.round(percent) + '%');
                         if (parseInt(percent) >= 100) {
