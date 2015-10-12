@@ -60,6 +60,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
                             _loadSounds(self);
                         }
                     }
+                    video._videoControl.currentTime++;
                 }
 
             });
