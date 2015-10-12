@@ -26,7 +26,7 @@ Game.define('Loader', 'engine/ui/loader', (function(fn, undefined) {
     };
 
     fn.prototype.off = function() {
-        this.this.$loader.removeClass('on');
+        this.$loader.removeClass('on');
     };
 
     return fn;
