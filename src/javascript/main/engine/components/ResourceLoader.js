@@ -71,7 +71,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
                         }
                         video._videoControl.currentTime++;
                     }
-                }, 250);
+                }, 500);
 
             });
         }
