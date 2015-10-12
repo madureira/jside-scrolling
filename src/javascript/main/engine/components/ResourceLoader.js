@@ -35,7 +35,15 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             }
         }
 
+        _addLoader(this);
+
         _loadVideos(this);
+    };
+
+    function _addLoader(self) {
+        var LoaderUI = Game.engine.ui.loader.Loader;
+        self.loader = new LoaderUI();
+        self.loader.on();
     };
 
     function _loadVideos(self) {
@@ -110,6 +118,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
     }
 
     function _callback(self) {
+        self.loader.off();
         self.callback();
     }
 
