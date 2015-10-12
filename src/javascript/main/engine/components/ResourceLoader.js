@@ -51,11 +51,21 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
 
         for (var i=0; i < videos.length; i++) {
             var video = new VideoUI(videos[i]);
-            video._videoControl.addEventListener('onload', function() {
-                if (++self.videosLoaded === self.videoList.length) {
-                    console.log('Load all videos');
-                    _loadSounds(self);
+            video._videoControl.addEventListener('progress', function() {
+                //if (++self.videosLoaded === self.videoList.length) {
+                //    console.log('Load all videos');
+                //    _loadSounds(self);
+                // }
+                var percent = 0;
+                if (video._videoControl.duration) {
+                    percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
+                    if (percent >= 100) {
+                        if (++self.videosLoaded === self.videoList.length) {
+                            _loadSounds(self);
+                        }
+                    }
                 }
+
             });
         }
 
