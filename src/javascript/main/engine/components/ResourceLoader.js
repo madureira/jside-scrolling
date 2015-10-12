@@ -57,6 +57,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
                     percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
                     if (parseInt(percent) >= 100) {
                         if (++self.videosLoaded === self.videoList.length) {
+                            ideo._videoControl.currentTime = 1;
                             _loadSounds(self);
                         }
                     }
