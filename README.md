@@ -3,6 +3,8 @@
 
 A small javascript engine to develop side-scrolling platform games.
 
+You can see  [here](jside-scrolling.madureira.me/public/index.html) what is possible to create with it.
+
 
 ## Dependencies
 
@@ -11,18 +13,18 @@ A small javascript engine to develop side-scrolling platform games.
 ## How to install?
 
 ```sh
-    $ npm install
-    $ npm install -g karma-cli gulp
+$ npm install
+$ npm install -g karma-cli gulp
 ```
 
 ## How to build?
 
 ```sh
-    $ npm run build
+$ npm run build
 ```
 
 ## How to run unit tests?
 
 ```sh
-    $ npm run test
+$ npm run test
 ```

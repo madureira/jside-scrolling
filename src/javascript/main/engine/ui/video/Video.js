@@ -26,7 +26,6 @@ Game.define('Video', 'engine/ui/video', (function(fn, undefined) {
         options.height = VIDEO_HIGHT;
 
         var videoTemplate = Game.templates.video_markup(options);
-
         var $videos = Game.$.byId('videos');
 
         $videos.insertAdjacentHTML('beforeend', videoTemplate);

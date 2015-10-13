@@ -19,14 +19,11 @@ Game.define('Sound', 'engine/ui/sound', (function(fn, undefined) {
      *
      */
     fn  = function(sound) {
-
         var soundTemplate = Game.templates.sound_markup(sound);
         var autoplay = sound.autoPlay;
-
         var $sounds = Game.$.byId('sounds');
 
         $sounds.insertAdjacentHTML('beforeend', soundTemplate);
-
         this._soundControl = Game.$.byId('sound-' + sound.id);
 
         return this;

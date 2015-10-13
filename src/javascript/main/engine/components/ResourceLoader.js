@@ -7,7 +7,6 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
         'jpeg'
     ];
 
-
     fn.prototype.load = function(itens, callback) {
         this.callback = callback;
 
@@ -65,22 +64,20 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
                     if (video._videoControl.duration) {
                         clearInterval(readyToLoad);
                         percent = (video._videoControl.buffered.end(0) / video._videoControl.duration) * 100;
-                        console.log('Video '+ i +', progress: ' + Math.round(percent) + '%');
+                        Logger.info('Video '+ i +', progress: ' + Math.round(percent) + '%');
                         if (parseInt(percent) >= 100) {
-                            console.log('Video' + i + ', completely loaded!');
+                            Logger.info('Video' + i + ', completely loaded!');
                             video._videoControl.currentTime = 1;
                             if (++self.videosLoaded === self.videoList.length) {
-                                console.log('All videos loaded');
+                                Logger.info('All videos loaded');
                                 _loadSounds(self);
                             }
                         }
                         video._videoControl.currentTime++;
                     }
                 }, 500);
-
             });
         }
-
     }
 
     function _loadSounds(self) {
@@ -90,7 +87,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             sounds[index] = new Audio();
             sounds[index].addEventListener('canplaythrough', function() {
                 if (++self.soundsLoaded === self.soundList.length) {
-                    console.log('Load all sounds');
+                    Logger.info('Load all sounds');
                     _loadImages(self);
                 }
             }, false);
@@ -105,7 +102,7 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
             images[index] = new Image();
             images[index].onload = function() {
                 if (++self.imagesLoaded === self.imageList.length) {
-                    console.log('Load all images');
+                    Logger.info('Load all images');
                     _callback(self);
                 }
             }
@@ -136,7 +133,6 @@ Game.define('ResourceLoader', 'engine/components', (function(fn, undefined) {
     function _getPathFromVideoPathName(pathname) {
         pathname = pathname.split('.');
         delete pathname[pathname.length-1];
-
         pathname = pathname.join('');
 
         return pathname;
