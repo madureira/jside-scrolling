@@ -3,7 +3,7 @@
 
 A small javascript engine to develop side-scrolling platform games.
 
-You can see  [here](jside-scrolling.madureira.me/public/index.html) what is possible to create with it.
+You can see  [here](http://jside-scrolling.madureira.me/public/index.html) what is possible to create with it.
 
 
 ## Dependencies
