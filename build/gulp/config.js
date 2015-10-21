@@ -1,5 +1,9 @@
+'use strict';
+
 /**
  * This is the build configuration file.
+ * Here is defined how the jside-scrolling will distribute the files and where.
+ * The load order of files should be taken into account, pay attention about it.
  *
  * @author madureira
  */

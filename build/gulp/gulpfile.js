@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Responsible to define gulp tasks.
+ *
+ * @author madureira
+ *
+ */
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var config = require('./config');
@@ -21,7 +27,7 @@ gulp.task('default', [
     'moveAssets'
 ]);
 
-// Watch file modifications and run tasks
+// Watch file's modification and run tasks
 gulp.task('watch', function() {
     gulp.start('default');
     gulp.watch(config.js.source, ['concatMainJs']);

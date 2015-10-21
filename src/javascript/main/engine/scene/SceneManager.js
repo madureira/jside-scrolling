@@ -43,11 +43,11 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         var resourceLoader = new ResourceLoader();
         resourceLoader.load([
             {video: 'intro'},
-            {audio: 'theme2-1-1'},
-            {audio: 'theme-1-1'},
+            {audio: 'theme2_1_1'},
+            {audio: 'theme_1_1'},
             {image: 'parallax/horizon_parallax.png'},
             {image: 'parallax/tree_parallax.png'},
-            {image: 'level/1-1.png'}
+            {image: 'level/1_1.png'}
         ], function() {
             _firstLevelStart(ctx, controller);
         });
@@ -77,7 +77,7 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         });
 
         var levelImage = new GameImage(ctx, {
-            imgSrc: 'level/1-1.png',
+            imgSrc: 'level/1_1.png',
             width: 5376,
             height: 512,
             limitUp: 0,
@@ -87,13 +87,13 @@ Game.define('SceneManager', 'engine/scene', (function(fn, undefined) {
         });
 
         var soundTheme2 = new Sound({
-            id: 'theme2-1-1',
+            id: 'theme2_1_1',
             autoplay: false,
             repeat: false
         });
 
         var soundTheme = new Sound({
-            id: 'theme-1-1',
+            id: 'theme_1_1',
             autoplay: false,
             repeat: true,
             whenFinish: soundTheme2
