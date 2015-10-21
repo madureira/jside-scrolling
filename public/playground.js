@@ -1,6 +1,6 @@
 var Test = {};
 
-var IMG_PATH = '../bin/images/tests'
+var IMG_PATH = '../bin/images/playground'
 
 var player = {
     x: 10,
