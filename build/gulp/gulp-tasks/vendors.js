@@ -3,6 +3,8 @@
 /**
  * This task is responsible to concat, uglify all js vendors and put it in a bin direcotory.
  *
+ * @author madureira
+ *
  * @param gulp Object
  * @param plugins Object
  * @param sourceFiles Array/String

@@ -3,6 +3,8 @@
 /**
  * This task is responsible to move assets to  bin direcotory.
  *
+ * @author madureira
+ *
  * @param gulp Object
  * @param plugins Object
  * @param sourceFiles Array/String
