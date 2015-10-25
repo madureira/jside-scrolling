@@ -4,7 +4,7 @@
  * @author madureira
  *
  */
-Logger = {
+var Logger = {
 
     info: function(message) {
         if (Game.settings.isLoggerEnabled) {

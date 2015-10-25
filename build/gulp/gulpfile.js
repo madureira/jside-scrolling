@@ -8,7 +8,7 @@
  */
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var config = require('./config');
+var config = require('../../config/build');
 
 
 // tasks
@@ -36,4 +36,3 @@ gulp.task('watch', function() {
     gulp.watch(config.css.source, ['buildCss']);
     gulp.watch(config.assets.files, ['moveAssets']);
 });
-

@@ -23,7 +23,7 @@ Config.assets.dest  = BASE_DIR + 'bin/';
 
 
 Config.js.source = [
-    BASE_DIR + 'src/javascript/main/core/config/Properties.js',
+    BASE_DIR + 'config/game.js',
     BASE_DIR + 'src/javascript/main/core/util/**/*.js',
     BASE_DIR + 'src/javascript/main/core/package/Manager.js',
     BASE_DIR + 'src/javascript/main/engine/**/*.js',

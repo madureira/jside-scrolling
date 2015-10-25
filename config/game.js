@@ -1,4 +1,10 @@
-// The main object
+/**
+ * This is the game configuration file.
+ * Here you can change the behaviour of the features of the entire game.
+ * Be careful when change the default settings.
+ *
+ * @author madureira
+ */
 var Game = Game || {};
 
 Game.ready = Game.ready || {};
