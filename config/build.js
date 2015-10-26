@@ -35,9 +35,8 @@ Config.js.vendors = [
 ];
 
 Config.css.source = [
-    BASE_DIR + 'src/stylesheet/vendors/rest.less',
-    BASE_DIR + 'src/stylesheet/vendors/**/*.less',
-    BASE_DIR + 'src/stylesheet/ui/main.less',
+    BASE_DIR + 'src/stylesheet/vendors/**/*.css',
+    BASE_DIR + 'src/stylesheet/settings.less',
     BASE_DIR + 'src/stylesheet/ui/**/*.less'
 ];
 

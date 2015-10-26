@@ -17,6 +17,14 @@
 module.exports = function (gulp, plugins, sourceFiles, destinationFolder, fileName) {
     return function() {
         gulp.src(sourceFiles)
+            // Removing module of configuration file to use the same on the browser.
+            .pipe(plugins.replaceTask({
+                usePrefix: false,
+                patterns: [{
+                    match: 'module.exports=function(){return Game;}();',
+                    replacement: ''
+                }]
+            }))
             .pipe(plugins.concat(fileName))
             .pipe(gulp.dest(destinationFolder));
     };
