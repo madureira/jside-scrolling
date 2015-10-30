@@ -26,9 +26,9 @@ Game.settings.FPS = 30;
 
 
 // Game assets paths
-Game.settings.path.assets.image = '../bin/images/';
-Game.settings.path.assets.sound = '../bin/sounds/';
-Game.settings.path.assets.video = '../bin/videos/';
+Game.settings.path.assets.image = 'bin/images/';
+Game.settings.path.assets.sound = 'bin/sounds/';
+Game.settings.path.assets.video = 'bin/videos/';
 
 
 

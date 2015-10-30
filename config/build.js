@@ -17,9 +17,9 @@ Config.assets   = {};
 Config.tmpl     = {};
 
 
-Config.js.dest      = BASE_DIR + 'bin/js/';
-Config.css.dest     = BASE_DIR + 'bin/css/';
-Config.assets.dest  = BASE_DIR + 'bin/';
+Config.js.dest      = BASE_DIR + 'public/bin/js/';
+Config.css.dest     = BASE_DIR + 'public/bin/css/';
+Config.assets.dest  = BASE_DIR + 'public/bin/';
 
 
 Config.js.source = [
