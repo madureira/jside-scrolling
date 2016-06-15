@@ -1,7 +1,7 @@
 # jside-scrolling
 [![GitHub version](https://badge.fury.io/gh/madureira%2Fjside-scrolling.svg)](http://badge.fury.io/gh/madureira%2Fjside-scrolling) [![Dependency Status](https://www.versioneye.com/user/projects/55582dbcb2ff6d477b000058/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55582dbcb2ff6d477b000058)
 
-A small javascript framework to develop side-scrolling platform games.
+A small javascript library to develop side-scrolling platform games.
 
 To understand what is possible to do with this tool, take a look at  [http://jside-scrolling.madureira.me](http://jside-scrolling.madureira.me), that is a humble tribute to the game Donkey Kong Country® (SNES), built using only jside-scrolling.
 
