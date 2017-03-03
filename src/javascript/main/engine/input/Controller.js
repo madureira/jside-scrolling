@@ -27,7 +27,7 @@ Game.define('Controller', 'engine/input', (function(fn, undefined) {
 
     function _updateConnectedGamepad(self) {
         setInterval(function() {
-            if (_getGamepad() === undefined) {
+            if (!_getGamepad()) {
                 gamepadIsConnected = false;
 
                 if (self.currentController !== 'KEYBOARD') {
