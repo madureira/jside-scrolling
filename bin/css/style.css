@@ -1,0 +1,215 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background-color: #000;
+}
+#inner-stage {
+  margin: 0 auto;
+  width: 640px;
+  height: 685px;
+}
+#inner-stage h1 {
+  background-image: url("../images/general/dk_logo.png");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  margin: 0 auto;
+  text-indent: -9999px;
+  width: 200px;
+  height: 104px;
+}
+#inner-stage h1,
+#inner-stage p {
+  text-align: center;
+  color: #fff;
+}
+#inner-stage a {
+  color: green;
+}
+#sounds {
+  display: none;
+}
+.hide {
+  display: none;
+}
+#loader {
+  position: absolute;
+  top: 370px;
+  z-index: 100;
+  width: 640px;
+  display: none;
+  text-align: center;
+}
+#loader span {
+  text-align: center;
+  color: #fff;
+  font-size: 1.0em;
+  font-family: sans-serif;
+}
+#loader.on {
+  display: block;
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: pulse;
+  animation-duration: 1s;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#viewport {
+  position: absolute;
+  top: 130px;
+  margin: 0 auto;
+  width: 640px;
+  height: 480px;
+  z-index: 3;
+}
+.jside-scrolling-link {
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+#videos {
+  position: absolute;
+  top: 130px;
+  margin: 0 auto;
+  width: 640px;
+  height: 480px;
+  background-color: #000 !important;
+  z-index: 3;
+}
