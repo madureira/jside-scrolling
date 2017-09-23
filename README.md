@@ -4,7 +4,8 @@
 A small javascript library to develop side-scrolling platform games.
 
 Look at this Donkey Kong Country® tribute buit with jside-scrolling.
-[Live Demo](http://jside-scrolling.madureira.me)
+
+[**Live Demo**](http://madureira.github.io/jside-scrolling/)
 
 
 ## Dependencies
