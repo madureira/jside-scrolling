@@ -22,17 +22,15 @@ module.exports = function (gulp, plugins, sourceFiles, destinationFolder, fileNa
                 wrapper: 'Game.templates["<%= templateName %>"] = <%= handlebars %>',
                 context: function(context) {
                     var file = context.file;
-                    var fullPath = file.path;
+                    var fullPath = file.path.replace(/\\/g,'/');
                     var tplPath = fullPath.split("templates/ui/").pop();
-                    var find = '/';
-                    var regex = new RegExp(find, 'g');
-                    var name = tplPath.replace(regex, '_').replace('.js', '');
+                    var name = tplPath.replace(new RegExp('/', 'g'), '_').replace('.js', '');
 
                     return { templateName: name };
                 }
             }))
             .pipe(plugins.concat(fileName))
-            .pipe(plugins.uglify())
+            //.pipe(plugins.uglify())
             .pipe(gulp.dest(destinationFolder))
             .pipe(plugins.filesize())
             .on('error', plugins.util.log);

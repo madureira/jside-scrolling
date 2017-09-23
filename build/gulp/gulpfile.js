@@ -25,7 +25,7 @@ gulp.task('default', [
     'concatJsVendors',
     'buildTemplates',
     'buildCss',
-    'minifyCss',
+    //'minifyCss',
     'moveAssets'
 ]);
 
@@ -36,6 +36,6 @@ gulp.task('watch', function() {
     gulp.watch(config.js.vendors, ['concatJsVendors']);
     gulp.watch(config.tmpl.source, ['buildTemplates']);
     gulp.watch(config.css.source, ['buildCss']);
-    gulp.watch(config.css.source, ['minifyCss']);
+    //gulp.watch(config.css.source, ['minifyCss']);
     gulp.watch(config.assets.files, ['moveAssets']);
 });
